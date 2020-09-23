@@ -1,0 +1,85 @@
+{%block content %}
+<html>
+<head>
+<style>
+img{
+width:1%;
+height:2%;
+}
+body {
+  position:absolute;
+  top: 60px;
+   left:450px;
+  width: 500px;
+  height: 700px;
+  background-color: grey;
+}
+ form{
+   width: 500%;
+  padding: 30px 20px;
+  margin: 8px 0;
+  display: inline-block;
+
+}
+h1 {
+   font-size:140%;
+    color:yellowgreen;
+}
+     input[type=text], input[type=password] {
+  width: 15%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+    h4{
+        color:yellowgreen;
+    }
+</style>
+</head> 
+    <body>
+<header>
+<h1><b>WELCOME TO ROBOY.COM</b></h1>
+</header>
+<form action="/signup" method='post' >    {%csrf_token%}
+    <label for="username">name:</label> <br>
+                  <input placeholder="username" type="text" name="username" id="username">
+                  <br>
+                    <br>
+                
+                  <label for="EMAIL">Email:</label> <br>
+                  <input placeholder="Email address" pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"  required  type="text" name="email" id="email">
+                  <small>eg:xxxxx@xx.xxx</small>
+                  <br>
+                    <br>
+                    <label for="password">Password:</label><br>
+                  <input placeholder="Password" type="password"  name="password" id="password" >
+                  <br> 
+                    <br>
+                    <label for="password2">Re_typepassword:</label><br>
+                    <input placeholder="re_typePassword" type="password"  name="password2" id="pasword2" >
+                  <br>
+                    <br>
+                    
+                    <p><b>already have a account ..?</b></p>
+                     <a href="/login">Login</a>
+                     <br>
+                    <br>
+                  <input type="submit" name="signup" value="signup">  
+                    <br>
+                    <br>
+</form> 
+    <div>
+       {% for message in messages %}
+        <h4>{{message}}</h4>
+    {% endfor %}
+    </div>
+</body>
+</html>
+    {% endblock %}

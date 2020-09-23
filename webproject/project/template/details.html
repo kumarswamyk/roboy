@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+body {
+  position:absolute;
+  top: 80px;
+  left: 500px;
+  width: 1500px;
+  height: 100px;
+  background-color:grey;
+}
+form {
+width:1500px;
+padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+h1 {
+   font-size:100%;
+    color:red;
+}
+    input[type=text], input[type=password] {
+ width: 15%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+    h4{
+        color:yellowgreen;
+    }
+</style>
+</head>
+<body>
+<h1>user details ...</h1>
+<form action="/details" method="POST">
+    {%csrf_token%}
+   <label for="firstname">firstname:</label><br>
+    <input type="text" id ="firstname" name="firstname" >
+    <br>
+    <br>
+    <label for="lastname">lastname:</label><br>
+    <input type="text" id ="lastname" name="lastname" >
+    <br>
+    <br>
+    <label for="email">email:</label><br>
+    <input type="text" pattern="[a-zA-Z0-9.!#$%&'+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" required id ="email" name="email" >
+    <small>eg:xxxxx@xx.xxx</small>
+    <br>
+    <br>
+    <label for="phonenumber">Phonenumber</label><br>
+    <input type="text" pattern="[0-9]{10}" required id="phonenumber" name="phonenumber">
+    <smal>format:0987334563</smal>
+   <br>
+    <br>
+
+<input type="submit" value="order", name="order">
+</form>
+    <div>
+       {% for message in messages %}
+        <h4>{{message}}</h4>
+    {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<style>
+body {
+  position:absolute;
+  top: 80px;
+  left: 500px;
+  width: 1500px;
+  height: 100px;
+  background-color:grey;
+}
+form {
+width:1500px;
+padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+h1 {
+   font-size:100%;
+    color:black;
+    }
+h2{
+   font-size:150%;
+    color:yellowgreen;   
+    }
+
+    input[type=text], input[type=password] {
+ width: 15%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+    </style>
+    </head>
+    <body>
+    <form>
+        <h2><b>Your Accounts details..</b></h2>
+      <div class='form'>
+          {% for names in apps %}
+          <h1>Firstname:{{names.firstname}}</h1><br>
+        <h1>Lastname:{{names.lastname}}</h1>
+          <br>
+          <h1>Email:{{names.email}}</h1>
+          <br>
+          <h1>phonenumber:{{names.phonenumber}}</h1>
+        
+        {% endfor%}
+          </div>
+        </form>
+    </body>
+</html>
